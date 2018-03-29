@@ -2,7 +2,11 @@
 #include <stdbool.h>
 #include <unistd.h>
 
+//#include <ncurses.h>  // TODO
+
 #include <clock.h>
+#include <grid.h>
+#include <actor.h>
 
 #define LIMIT_TICKS 100
 
@@ -12,6 +16,9 @@ int main() {
 
     gameclock_t clock;
     initialize_clock(&clock);
+
+    gamegrid_t grid;
+    initialize_grid(&grid);
 
     while (running) {
         increment_clock(&clock);
