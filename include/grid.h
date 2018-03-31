@@ -23,7 +23,7 @@ typedef struct cell {
 } cell_t;
 
 typedef struct gamegrid {
-    cell_t *Cells[GridMaxX][GridMaxY];
+    cell_t (*Cells)[GridMaxX][GridMaxY];
 } gamegrid_t;
 
 void initialize_grid(gamegrid_t *g);
