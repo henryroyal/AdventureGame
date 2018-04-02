@@ -2,43 +2,43 @@
 // Created by henry on 3/27/18.
 //
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
+#include <assert.h>
 
 #include <grid.h>
 #include <actor.h>
 
 
-void initialize_grid(gamegrid_t *g) {
+gamegrid_t *new_grid() {
 
-    gamegrid_t NewGrid;
+    gamegrid_t *grid = malloc(sizeof(gamegrid_t));
+    assert(grid);
 
-    for (coordinate_t x = 0; x <= GridMaxX; ++x) {
+    grid->Cells = malloc(sizeof(cell_t[GridMaxX][GridMaxY]));
+    assert(grid->Cells);
 
-        coordinate_t *cellX = malloc(sizeof(coordinate_t));
-        if (cellX) {
-            *cellX = x;
-        }
+    for (coordinate_t x = 0; x < GridMaxX; ++x) {
+        coordinate_t *coordXptr = malloc(sizeof(coordinate_t));
+        assert(coordXptr);
 
-        for (coordinate_t y = 0; y <= GridMaxY; ++y) {
+        for (coordinate_t y = 0; y < GridMaxY; ++y) {
+            coordinate_t *coordYptr = malloc(sizeof(coordinate_t));
+            assert(coordYptr);
 
-            coordinate_t *cellY = malloc(sizeof(coordinate_t));
-            if (cellY) {
-                *cellY = y;
-            }
+            cell_t *cellptr = malloc(sizeof(coordinate_t));
+            assert(cellptr);
 
-            cell_t cellptr;
-            cellptr.ActorCount = 0;
-            cellptr.X = cellX;
-            cellptr.Y = cellY;
+            cellptr->X = x;
+            cellptr->Y = y;
 
-
-            *(*((NewGrid.Cells)+x)+y) = cellptr;
+            cell_t *tmp = ((cell_t *) ((cell_t *) grid->Cells + x) + y);
+            tmp = cellptr;
         };
     }
 
-    *g = NewGrid;
+    return grid;
 }
 
 
-actor_t new_actor(actortype_t type, actorstate_t state) {
-}
+//actor_t new_actor(actortype_t type, actorstate_t state) {}

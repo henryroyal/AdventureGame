@@ -16,16 +16,14 @@ typedef unsigned int coordinate_t;
 #define CellMaxActors 10
 
 typedef struct cell {
-    unsigned int *ActorCount;
-    actor_t *Actors[CellMaxActors];
-    coordinate_t *X;
-    coordinate_t *Y;
+    coordinate_t X;
+    coordinate_t Y;
 } cell_t;
 
 typedef struct gamegrid {
     cell_t (*Cells)[GridMaxX][GridMaxY];
 } gamegrid_t;
 
-void initialize_grid(gamegrid_t *g);
+gamegrid_t *new_grid();
 
 #endif //ADVENTUREGAME_GRID_H

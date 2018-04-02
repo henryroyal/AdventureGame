@@ -8,7 +8,7 @@
 #include <grid.h>
 #include <actor.h>
 
-#define LIMIT_TICKS 100
+#define LIMIT_TICKS 10
 
 int main() {
     ticker_t maximum = LIMIT_TICKS;
@@ -17,8 +17,7 @@ int main() {
     gameclock_t clock;
     initialize_clock(&clock);
 
-    gamegrid_t grid;
-    initialize_grid(&grid);
+    gamegrid_t *grid = new_grid();
 
     while (running) {
         increment_clock(&clock);
