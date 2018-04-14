@@ -4,11 +4,13 @@
 
 #include <stdint.h>
 #include <pthread.h>
+#include <grid.h>
 
 
 #ifndef ADVENTUREGAME_CLOCK_H
 #define ADVENTUREGAME_CLOCK_H
 
+#define LIMIT_TICKS 10
 
 typedef uint_fast32_t ticker_t;
 
@@ -19,5 +21,6 @@ typedef struct gameclock {
 void initialize_clock(gameclock_t *c);
 
 void increment_clock(gameclock_t *c);
+
 
 #endif //ADVENTUREGAME_CLOCK_H
