@@ -15,9 +15,13 @@ int main() {
 
     gamegrid_t *grid = new_grid();
 
+    init_screen();
+
     do {
         tick(&clock, grid, running);
     } while (*running);
+
+    destroy_screen();
 
     return 0;
 }
