@@ -41,4 +41,7 @@ gamegrid_t *new_grid() {
 }
 
 
+void free_grid(gamegrid_t *g) {}
+
+
 //actor_t new_actor(actortype_t type, actorstate_t state) {}

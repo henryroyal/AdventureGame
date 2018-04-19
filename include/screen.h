@@ -8,10 +8,12 @@
 #ifndef ADVENTUREGAME_SCREEN_H
 #define ADVENTUREGAME_SCREEN_H
 
-void init_screen();
+void init_screen(WINDOW *window);
 
 void tick(gameclock_t *c, gamegrid_t *g, bool *running);
 
 void destroy_screen();
+
+void print_test(gamegrid_t *g);
 
 #endif //ADVENTUREGAME_SCREEN_H
