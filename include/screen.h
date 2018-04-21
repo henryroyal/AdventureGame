@@ -2,6 +2,7 @@
 // Created by henry on 4/14/18.
 //
 
+#include <X11/Xlib.h>
 #include <clock.h>
 #include <grid.h>
 

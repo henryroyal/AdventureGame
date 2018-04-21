@@ -26,7 +26,7 @@ void init_screen(WINDOW *window) {
     cbreak();
     noecho();
 
-    int err = resize_term(GridMaxX, GridMaxY);
+    int err = resizeterm(25, 25);
     assert(err != ERR);
 }
 
